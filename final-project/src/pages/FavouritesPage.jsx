@@ -7,6 +7,7 @@ const FavouritesPage = () => {
     return (
         <div>
             <Header />
+            <h1>This is the fav page</h1>
         </div> 
     )
 }

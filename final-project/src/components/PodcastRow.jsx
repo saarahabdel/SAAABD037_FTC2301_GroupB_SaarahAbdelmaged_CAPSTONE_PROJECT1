@@ -14,7 +14,7 @@ const PodcastRow = () => {
 
     const fetchPodcasts = () => {
         axios 
-          .get("https://podcast-api.netlify.app/shows")
+          .get("https://podcast-api.netlify.app/")
           .then((res) => {
             console.log(res);
             setPodcast(res.data);
