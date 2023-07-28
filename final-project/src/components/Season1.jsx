@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const Season = () => {
+const Season1 = () => {
 
     const [season, setSeason] = useState([]);
 
@@ -26,4 +26,4 @@ const Season = () => {
 
 }
 
-export default Season 
+export default Season1
