@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../App.css'
 import { genres } from '../assets/constants';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const PodcastRow = () => {
 
@@ -34,11 +34,17 @@ const PodcastRow = () => {
         return date.toLocaleDateString();
     };  
 
+    let navigate = useNavigate();
+    const routeChange = () => {
+        let path = `/season`;
+        navigate(path);
+    }
+
     return (
-        <li className='pod-container'>
+        <li className='pod-container' onClick={routeChange}>
                 {podcast.map((pod) => {
                     return (
-                        <Link to={`/season`} key={pod.id}>
+                        // <Link to={`/season`} key={pod.id}>
                         <div className='podcast-container' key={pod.id}>
                             <img src={pod.image} width='300vw' height='300vh' alt="Podcast Image"></img>
                             <p>{pod.title}</p>
@@ -46,7 +52,7 @@ const PodcastRow = () => {
                             <p>Seasons: {pod.seasons}</p>
                             <p>Last Updated: {formatDate(pod.updated)}</p>
                         </div>
-                        </Link>
+                        // </Link>
                     )
                 })}   
         </li>
