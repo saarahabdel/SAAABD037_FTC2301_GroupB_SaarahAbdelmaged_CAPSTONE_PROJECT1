@@ -1,6 +1,5 @@
 import React from "react";
 import PodcastSorting from './PodcastSorting';
-import Carousel from './Carousel';
 // import Header from "../header";
 // import Preview from "../Preview";
 import { Link } from "react-router-dom";

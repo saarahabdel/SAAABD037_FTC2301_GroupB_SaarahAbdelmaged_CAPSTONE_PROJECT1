@@ -1,7 +1,7 @@
 import React from 'react'
 import { Outlet, Link } from "react-router-dom"
 import '../App.css'
-import Carousel from './Carousel';
+
 
 const Header = ({ podcast }) => {
     return (
@@ -14,7 +14,6 @@ const Header = ({ podcast }) => {
                 <li><Link to='/login'>Login/Register</Link></li> */}
             </ul>
             </nav>
-            <Carousel podcast={podcast} />
 
             <Outlet />
         </div>

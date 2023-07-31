@@ -4,12 +4,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './pages/Layout';
 import HomePage from './pages/HomePage';
 import EpisodePage from './pages/EpisodePage';
-import SeasonPage from './pages/SeasonPage';
+// import SeasonPage from './pages/SeasonPage';
 import FavouritesPage from './pages/FavouritesPage';
 import Login from './pages/Login';
 import ActualHome from './pages/ActualHome';  
 import Register from './pages/Register';
 import UserLoginHome from './pages/UserLoginHome';
+import ShowDetails from './components/ShowDetails'
 
 const  App = () => {
 
@@ -52,12 +53,13 @@ const  App = () => {
         <Route path='/' element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path='actualhome' element={<ActualHome />}></Route>
-          <Route path='season' element={<SeasonPage />}></Route>
+          {/* <Route path='season' element={<SeasonPage />}></Route> */}
           <Route path='episode' element={<EpisodePage />}></Route>
           <Route path='favourites' element={<FavouritesPage />}></Route>
           <Route path='register' element={<Register />}></Route>
           <Route path='login' element={<Login setToken={setToken}/>}></Route>
           {token?<Route path={'/userloginhome'} element={ <UserLoginHome token={token} />} />:""}  
+          <Route path="/podcast/:id" element={<ShowDetails />} />
         </Route>
       </Routes>
     </BrowserRouter>
