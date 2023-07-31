@@ -4,15 +4,14 @@ import PodcastRow from '../components/PodcastRow';
 import Search from '../components/Search';
 
 
-const HomePage = () => {
+const ExplorePage = () => {
     return (
-        // <div>
-        // <Header />
-        // <Search />
-        // <PodcastRow />
-        // </div> 
-        "Home"
+        <div>
+        <Header />
+        <Search />
+        <PodcastRow />
+        </div> 
     )
 }
 
-export default HomePage 
+export default ExplorePage 

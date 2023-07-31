@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './pages/Layout';
-// import HomePage from './pages/HomePage';
+import ExplorePage from './pages/ExplorePage';
 import PodcastRow from './components/PodcastRow';
 import EpisodePage from './pages/EpisodePage';
 // import SeasonPage from './pages/SeasonPage';
 import FavouritesPage from './pages/FavouritesPage';
 import Login from './pages/Login';
-import ActualHome from './pages/ActualHome';  
+import Home from './pages/Home';  
 import Register from './pages/Register';
 import UserLoginHome from './pages/UserLoginHome';
 import ShowDetails from './components/ShowDetails'
@@ -52,8 +52,8 @@ const  App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<PodcastRow podcast={podcastData} />} />
-          <Route path='actualhome' element={<ActualHome />}></Route>
+          <Route path='explorepage' element={<ExplorePage />} />
+          <Route index element={<Home />}></Route>
           {/* <Route path='season' element={<SeasonPage />}></Route> */}
           <Route path='episode' element={<EpisodePage />}></Route>
           <Route path='favourites' element={<FavouritesPage />}></Route>

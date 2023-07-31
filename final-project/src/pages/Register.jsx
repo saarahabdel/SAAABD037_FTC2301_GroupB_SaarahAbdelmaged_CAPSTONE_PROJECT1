@@ -46,8 +46,9 @@ const Register = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='login-form'>
+            <p className='login-header'>REGISTER</p>
+            <form onSubmit={handleSubmit} className='form'>
 
                 <input 
                     placeholder='Fullname'
@@ -68,11 +69,11 @@ const Register = () => {
                     onChange={handleChange}
                 />
 
-                <button type='submit'>
+                <button type='submit' className='submit-login'>
                     Submit
                 </button>
             </form>
-            Already have an account? <Link to='/login'>Login</Link>
+            <div className='register-link'>Already have an account? <Link to='/login'>Login</Link></div>
         </div>
     )
 }

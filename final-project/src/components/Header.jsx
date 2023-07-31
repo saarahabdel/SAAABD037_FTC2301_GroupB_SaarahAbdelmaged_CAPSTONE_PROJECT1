@@ -3,10 +3,10 @@ import { Outlet, Link } from "react-router-dom"
 import '../App.css'
 
 
-const Header = ({ podcast }) => {
+const Header = () => {
     return (
         <div className='header-container'>
-            <h1 className='header-style'>Podcast.</h1>
+            <h1 className='header-style'>Podcast</h1>
             <nav>
             <ul className='nav-bar'>
                 <li><Link to='/'>Home</Link></li>

@@ -26,9 +26,9 @@ export default function ShowDetails() {
 
   if (!showData) {
     return  <div className="loading--screen">
-                <img className="loading--image" 
+                {/* <img className="loading--image" 
                     src="./src/img/ouroboros.png" 
-                    alt="Loading snake"/>
+                    alt="Loading snake"/> */}
                 <div className="loading--text">Loading...</div>
             </div>;
   }

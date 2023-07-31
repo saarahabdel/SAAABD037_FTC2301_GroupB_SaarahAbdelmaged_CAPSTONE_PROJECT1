@@ -1,7 +1,5 @@
 import React from "react";
 import PodcastSorting from './PodcastSorting';
-// import Header from "../header";
-// import Preview from "../Preview";
 import { Link } from "react-router-dom";
 
 export default function Podcast({ id }) {
@@ -110,24 +108,21 @@ export default function Podcast({ id }) {
                 </div>
             ) :
             (podcast.map((show) => (
-                <div key={show.id} className="podcast--item">
+                <div key={show.id} className="podcast-item">
                     <Link to={`/podcast/${show.id}`}>
                     <img 
-                        className="podcast--image" 
                         src={show.image} 
                         alt={show.title} width='300vw' height='300vh' />
-                        <div className="play--icon">
-                        </div>
-                        </Link>
+                    </Link>
                     <div className="podcast--info">
                         <div className="podcast--title">{show.title}</div>
                         <p className="podcast--updated">Updated Date: {formatDate(show.updated)}</p>
                         <p className="podcast--seasons">Seasons: {`Season ${show.seasons}`}</p>
-                        <button
+                        {/* <button
                             className="display--info-button"
                             onClick={() => handleInfoClick(show.id)}>
                             {showDescriptionId === show.id ? "Hide Info" : "Display Info"}
-                        </button>
+                        </button> */}
                         <div className={`podcast--description ${
                             showDescriptionId === show.id ? "show" : ""}`} >
                             {show.description}

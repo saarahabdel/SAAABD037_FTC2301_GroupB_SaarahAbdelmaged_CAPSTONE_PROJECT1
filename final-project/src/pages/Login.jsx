@@ -44,8 +44,9 @@ const Login = ({ setToken }) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='login-form'>
+            <p className='login-header'>LOGIN</p>
+            <form onSubmit={handleSubmit} className='form'>
 
 
                 <input 
@@ -61,11 +62,11 @@ const Login = ({ setToken }) => {
                     onChange={handleChange}
                 />
 
-                <button type='submit'>
-                    Submit
+                <button type='submit' className='submit-login'>
+                    SUBMIT
                 </button>
             </form>
-            Don't have an account? <Link to='/register'>Register</Link>
+            <div className='register-link'>Don't have an account? <Link to='/register'>Register</Link></div>
         </div>
     )
 }
