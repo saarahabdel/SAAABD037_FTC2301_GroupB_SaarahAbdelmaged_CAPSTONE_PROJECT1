@@ -6,11 +6,12 @@ import Search from '../components/Search';
 
 const HomePage = () => {
     return (
-        <div>
-        <Header />
-        <Search />
-        <PodcastRow />
-        </div> 
+        // <div>
+        // <Header />
+        // <Search />
+        // <PodcastRow />
+        // </div> 
+        "Home"
     )
 }
 

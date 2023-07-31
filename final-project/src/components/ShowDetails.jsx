@@ -5,7 +5,7 @@ import Season from "./Season.jsx";
 export default function ShowDetails() {
   const { id } = useParams();
   const [showData, setShowData] = useState(null);
-  console.log(data)
+  // console.log(data)
 
   useEffect(() => {
     const apiUrl = `https://podcast-api.netlify.app/shows/${id}`;

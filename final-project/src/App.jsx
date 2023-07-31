@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './pages/Layout';
-import HomePage from './pages/HomePage';
+// import HomePage from './pages/HomePage';
+import PodcastRow from './components/PodcastRow';
 import EpisodePage from './pages/EpisodePage';
 // import SeasonPage from './pages/SeasonPage';
 import FavouritesPage from './pages/FavouritesPage';
@@ -51,7 +52,7 @@ const  App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route index element={<PodcastRow podcast={podcastData} />} />
           <Route path='actualhome' element={<ActualHome />}></Route>
           {/* <Route path='season' element={<SeasonPage />}></Route> */}
           <Route path='episode' element={<EpisodePage />}></Route>
