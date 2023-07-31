@@ -6,7 +6,7 @@ import React from "react";
 */
 export default function PodcastSorting({ handleSelectChange }) {
     const sortingOptions = [
-        "--sort--",
+        "Sort podcasts by:",
         "A-Z",
         "Z-A",
         "Recent - Oldest",
@@ -27,8 +27,8 @@ export default function PodcastSorting({ handleSelectChange }) {
     }
 
     return (
-        <div className="podcast--sorting">
-            <select onChange={handleSortingChange}>
+        <div className="podcast-sorting">
+            <select onChange={handleSortingChange} className="podcast-sort">
                 {sortingOptions.map((option) => (
                     <option key={option} value={option}>
                         {option}

@@ -7,23 +7,32 @@
 }
 
 .header-container {
+    display: flex;   
+}
+
+.header-style {
+    /* margin-left: 20%; */
+    font-size: 4vw;
+    width: 50vw;
+}
+
+.top-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     position: sticky;
     top: 0;
     background-color: #8a2be2;
 }
 
-.nav-bar {
-    display: flex;
-    list-style: none;
-    margin-left: 30vw;
+.home-link {
+   font-size: 2vw;
+   margin-left: 35vw;
+   margin-top: 2vh;
+   padding: 0;
+   color: white;
 }
 
-.header-style {
-    margin-left: 20%;
-    font-size: 3vw;
-}
+
 
 .podcast-item {
     border: solid;
@@ -32,7 +41,7 @@
 
 
 
-/* Actual Home Page Styling */
+/* Home Page Styling */
 .actual-home {
     text-align: center;
     display: flex;
@@ -64,6 +73,14 @@
     background-color: white;
     padding: 2vh 5vw;
     border-radius: 10px;
+}
+
+.search-bar {
+    border: solid;
+    padding: 1vw 2vh;
+    width: 98vw;
+    position: sticky;
+    top: 0;
 }
 
 /* LOGIN PAGE */
@@ -108,7 +125,50 @@ input {
 }
 
 
+.podcast-sort {
+    width: 98vw;
+    padding: 1vw;
+}
 
+/* Loading  */
+.loading-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+    margin-top: 25vh;
+}
+
+@keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+
+
+/* User Login Home Page */
+.user-home {
+    background-color: #8a2be2;
+    display: flex;
+}
+
+.logout-button {
+    border: none;
+    background-color: white;
+    padding: 1vh 2vw;
+    border-radius: 10px;
+    margin-left: 70vw;
+}
 
 
 

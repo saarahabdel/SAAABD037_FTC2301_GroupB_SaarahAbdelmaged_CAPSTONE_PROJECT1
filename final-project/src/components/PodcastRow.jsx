@@ -1,6 +1,7 @@
 import React from "react";
 import PodcastSorting from './PodcastSorting';
 import { Link } from "react-router-dom";
+import Spinner from './Loading';
 
 export default function Podcast({ id }) {
     /* states variables that is used in the webapp
@@ -102,9 +103,8 @@ export default function Podcast({ id }) {
         <main className="podcast">
             <PodcastSorting handleSelectChange={handleSortingChange} />
             {podcast.length === 0 ? (
-                <div className="loading--screen">
-                    {/* <img className="loading--image" src="./src/img/ouroboros.png" alt="Loading snake"/> */}
-                    <div className="loading--text">Loading...</div>
+                <div className="loading-screen">
+                    <Spinner />
                 </div>
             ) :
             (podcast.map((show) => (
@@ -114,15 +114,15 @@ export default function Podcast({ id }) {
                         src={show.image} 
                         alt={show.title} width='300vw' height='300vh' />
                     </Link>
-                    <div className="podcast--info">
-                        <div className="podcast--title">{show.title}</div>
-                        <p className="podcast--updated">Updated Date: {formatDate(show.updated)}</p>
-                        <p className="podcast--seasons">Seasons: {`Season ${show.seasons}`}</p>
-                        {/* <button
+                    <div className="podcast-info">
+                        <div className="podcast-title">{show.title}</div>
+                        <p className="podcast-updated">Updated Date: {formatDate(show.updated)}</p>
+                        <p className="podcast-seasons">Seasons: {`${show.seasons}`}</p>
+                        <button
                             className="display--info-button"
                             onClick={() => handleInfoClick(show.id)}>
                             {showDescriptionId === show.id ? "Hide Info" : "Display Info"}
-                        </button> */}
+                        </button>
                         <div className={`podcast--description ${
                             showDescriptionId === show.id ? "show" : ""}`} >
                             {show.description}
