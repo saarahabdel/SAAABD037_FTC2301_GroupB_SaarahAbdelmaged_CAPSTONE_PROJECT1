@@ -27,6 +27,25 @@ const  App = () => {
      }
   }, [])
 
+
+  const [podcastData, setPodcastData] = React.useState([]);
+
+    useEffect(() => {
+        const apiUrl = "https://podcast-api.netlify.app/shows" ;
+        fetch(apiUrl)
+            .then((res) => {
+                if (!res.ok){
+                    throw new Error("Network response was not ok");
+                }return res.json();
+            })
+            .then((data) => {
+                setPodcastData(data);
+            })
+            .catch((error) => {
+                console.error("Error fetching the podcast data:", error);
+        });
+    }, []);
+
   return (
     <BrowserRouter>
       <Routes>
