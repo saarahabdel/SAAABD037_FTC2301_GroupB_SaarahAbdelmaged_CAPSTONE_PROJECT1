@@ -1,9 +1,11 @@
 import React from "react";
-import PodcastSorting from './PodcastSorting';
+import PodcastSorting from "../PodcastSorting";
+import Header from "../Header";
 import { Link } from "react-router-dom";
-import Spinner from './Loading';
+import Loading from '../Loading'
+import '../../App.css'
 
-export default function Podcast({ id }) {
+export default function Podcast(id) {
     /* states variables that is used in the webapp
     *
     */
@@ -104,25 +106,23 @@ export default function Podcast({ id }) {
             <PodcastSorting handleSelectChange={handleSortingChange} />
             {podcast.length === 0 ? (
                 <div className="loading-screen">
-                    <Spinner />
+                    <Loading />
                 </div>
             ) :
             (podcast.map((show) => (
-                <div key={show.id} className="podcast-item">
+                <div key={show.id} className="podcast--item">
                     <Link to={`/podcast/${show.id}`}>
                     <img 
+                        className="podcast--image" 
                         src={show.image} 
-                        alt={show.title} width='300vw' height='300vh' />
-                    </Link>
-                    <div className="podcast-info">
-                        <div className="podcast-title">{show.title}</div>
-                        <p className="podcast-updated">Updated Date: {formatDate(show.updated)}</p>
-                        <p className="podcast-seasons">Seasons: {`${show.seasons}`}</p>
-                        <button
-                            className="display--info-button"
-                            onClick={() => handleInfoClick(show.id)}>
-                            {showDescriptionId === show.id ? "Hide Info" : "Display Info"}
-                        </button>
+                        alt={show.title} width='300vw' height='300vh'/>
+                        <div className="play--icon">
+                        </div>
+                        </Link>
+                    <div className="podcast--info">
+                        <div className="podcast--title">{show.title}</div>
+                        <p className="podcast--updated">Updated Date: {formatDate(show.updated)}</p>
+                        <p className="podcast--seasons">Season: {`Season ${show.seasons}`}</p>
                         <div className={`podcast--description ${
                             showDescriptionId === show.id ? "show" : ""}`} >
                             {show.description}
@@ -131,70 +131,7 @@ export default function Podcast({ id }) {
                 </div>
             )))}
         </main>
+        <div className="audio-div">Hello there</div>
         </div>
             )
 }
-
-
-// import React from 'react'
-// import { useState, useEffect } from 'react';
-// import axios from 'axios';
-// import '../App.css'
-// import { genres } from '../assets/constants';
-// import { Link, useNavigate } from 'react-router-dom';
-
-// const PodcastRow = () => {
-
-//     const [podcast, setPodcast] = useState([]);
-//     useEffect(() => {
-//         fetchPodcasts();
-//     }, []);
-
-//     const fetchPodcasts = () => {
-//         axios 
-//           .get("https://podcast-api.netlify.app/")
-//           .then((res) => {
-//             console.log(res);
-//             setPodcast(res.data);
-//           })
-//           .catch((err) => {
-//             console.log(err);
-//           })
-//     };
-
-//     const getTitle = (value) => {
-//         const genre = genres.find((genre) => genre.value === value);
-//         return genre ? genre.title : '';
-//       };
-
-//     const formatDate = (dateString) => {
-//         const date = new Date(dateString);
-//         return date.toLocaleDateString();
-//     };  
-
-//     let navigate = useNavigate();
-//     const routeChange = () => {
-//         let path = `/season`;
-//         navigate(path);
-//     }
-
-//     return (
-//         <li className='pod-container' onClick={routeChange}>
-//                 {podcast.map((pod) => {
-//                     return (
-//                         // <Link to={`/season`} key={pod.id}>
-//                         <div className='podcast-container' key={pod.id}>
-//                             <img src={pod.image} width='300vw' height='300vh' alt="Podcast Image"></img>
-//                             <p>{pod.title}</p>
-//                             <p>{getTitle('1')}</p>
-//                             <p>Seasons: {pod.seasons}</p>
-//                             <p>Last Updated: {formatDate(pod.updated)}</p>
-//                         </div>
-//                         // </Link>
-//                     )
-//                 })}   
-//         </li>
-//     )
-// }
-
-// export default PodcastRow

@@ -22,7 +22,7 @@ function Home() {
                 <br></br>
                 <button className="register-button"><Link to='/register'>REGISTER</Link></button>
                 <br></br>
-                <button className="explore-button"><Link to='/explorepage'>EXPLORE</Link></button>
+                <button className="explore-button"><Link to='/podcast'>EXPLORE</Link></button>
       </div>
 
     

@@ -1,4 +1,5 @@
 import React from "react";
+import '../App.css';
 
 /* main sorting function that uses the handleSelectChange parameter. it loads all the 
 * objects found in the handleSelectChange function 
@@ -6,13 +7,11 @@ import React from "react";
 */
 export default function PodcastSorting({ handleSelectChange }) {
     const sortingOptions = [
-        "Sort podcasts by:",
+        "Sort Podcasts By:",
         "A-Z",
         "Z-A",
         "Recent - Oldest",
         "Oldest - Recent",
-        "Genres",
-        "Favourites",
     ];
 
     /* function that handles the sorting logic using the values in the sortingOptions 
