@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AudioPlayerOverlay from "./pages/AudioPlayer";
+import AudioPlayer from "./pages/AudioPlayer";
 
 export default function Season({ season }) {
   const [showEpisodes, setShowEpisodes] = useState(false);
@@ -25,7 +25,7 @@ export default function Season({ season }) {
           {season.episodes.map((episode, index) => (
             <div key={episode.id} className="season--episode-item">
               {`${index + 1}. ${episode.title}`}
-              <AudioPlayerOverlay audioUrl={episode.file} />
+              <AudioPlayer audioUrl={episode.file} />
             </div>
           ))}
         </div>

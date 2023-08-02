@@ -1,6 +1,6 @@
 import React ,{ useState, useEffect, useRef } from "react";
 
-export default function AudioPlayerOverlay({ audioUrl }) {
+export default function AudioPlayer({ audioUrl }) {
     const audioRef = useRef();
     const [isPlaying, setIsPlaying] = useState(false);
 
