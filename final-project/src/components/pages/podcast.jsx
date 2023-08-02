@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Loading from '../Loading'
 import '../../App.css'
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function Podcast(id) {
     /* states variables that is used in the webapp
@@ -14,7 +15,8 @@ export default function Podcast(id) {
     const [showDescriptionId, setShowDescriptionId] = useState(null);
     const [selectedOption, setSelectedOption] = useState(null);
 
-    
+
+
     /* Api callback function that fetchs the data from the podcast api as well 
     * as if any data couldnt be fetched returns an error to the console with a message
     *
@@ -36,6 +38,34 @@ export default function Podcast(id) {
           });
       }, []);  
         
+
+      const genreList = [
+        "Personal Growth",
+        "True Crime and Investigative Journalism",
+        "History",
+        "Comedy",
+        "Entertainment",
+        "Business",
+        "Fiction",
+        "News",
+        "Kids and Family",
+      ];
+      
+      // const { showId } = useParams();
+      // const mapGenres = (genreNumbers) => {
+      //   return genreNumbers.map((number) => {
+      //     if (number >= 0 && number < genreList.length) {
+      //       return genreList[number];
+      //     }
+      //     return "Unknown Genre";
+      //   });
+      // };
+
+      // const genreObject = podcast.find((show) => show.id === showId);
+
+      // const { genres } = genreObject;
+    
+      // const mappedGenres = mapGenres(genres);
 
         
         /* function in charge of changing the date found in the podcast array "updated"
@@ -123,6 +153,7 @@ export default function Podcast(id) {
                             showDescriptionId === show.id ? "show" : ""}`} >
                             {show.description}
                         </div>
+                        {/* <p className="show-genres">Genres: {mappedGenres.join(", ")}</p> */}
                         <br></br><br></br><br></br>
                         <Link to={`/podcast/${show.id}`}>
                         <button className="view-seasons-button">VIEW SEASONS</button>

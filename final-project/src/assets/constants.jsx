@@ -1,4 +1,4 @@
-export const genres = [
+ const genreMapping = [
     { title: 'Personal Growth', value: '1'},
     { title: 'True Crime and Investigative Journalism', value: '2'},
     { title: 'History', value: '3'},
@@ -9,3 +9,5 @@ export const genres = [
     { title: 'News', value: '8'},
     { title: 'Kids and Family', value: '9'}
 ];
+
+export default genreMapping
