@@ -14,18 +14,18 @@ import UserLoginHome from './components/pages/UserLoginHome'
 */
 export default function PageRoutes() {
 
-    const [token, setToken] = useState(false)
+    // const [token, setToken] = useState(false)
     
-    if(token){
-        sessionStorage.setItem('token', JSON.stringify(token))
-    }
+    // if(token){
+    //     sessionStorage.setItem('token', JSON.stringify(token))
+    // }
 
-    useEffect(() => {
-        if(sessionStorage.setItem('token')){
-            let data = JSON.parse(sessionStorage.getItem('token'))
-            setToken(data)
-        }
-    }, [])
+    // useEffect(() => {
+    //     if(sessionStorage.setItem('token')){
+    //         let data = JSON.parse(sessionStorage.getItem('token'))
+    //         setToken(data)
+    //     }
+    // }, [])
   
     const [podcastData, setPodcastData] = useState([]);
 
@@ -50,9 +50,11 @@ export default function PageRoutes() {
             <Route path='/' element={<Home />} />
             <Route path="/podcast" element={<Podcast podcast={podcastData} />} />
             <Route path="/podcast/:id" element={<ShowDetails />} />
-            <Route path='/login' element={<Login setToken={setToken} />} />
+            <Route path='/login' element={<Login />} />
+            {/* <Route path='/login' element={<Login setToken={setToken} />} /> */}
             <Route path='/register' element={<Register />} />
-            {token?<Route path='/userloginhome' element={<UserLoginHome token={token} />} />:''}
+            {/* {token?<Route path='/userloginhome' element={<UserLoginHome token={token} />} />:''} */}
+            <Route path='/userloginhome' element={<UserLoginHome />} />
         </Routes>
     )
 }

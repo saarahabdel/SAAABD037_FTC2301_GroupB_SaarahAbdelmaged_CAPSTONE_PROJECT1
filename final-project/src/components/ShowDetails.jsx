@@ -32,12 +32,16 @@ export default function ShowDetails() {
   }
 
   return (
-    <div className="all--seasons">
-      <h2>{`Title: ${showData.title}`}</h2>
+    <div className="all-seasons">
+      <h1>{`Title: ${showData.title}`}</h1>
+      <br></br>
       <h3>{` Description: ${showData.description}`}</h3>
-      {showData.seasons.map((season) => (
-        <Season key={season.id} season={season} />
-      ))}
+      <br></br>
+      <div className="season-card">
+        {showData.seasons.map((season) => (
+          <Season key={season.id} season={season} />
+        ))}
+      </div>
     </div>
   );
 }

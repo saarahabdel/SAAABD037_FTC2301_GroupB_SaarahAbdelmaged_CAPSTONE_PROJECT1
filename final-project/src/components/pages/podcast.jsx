@@ -4,21 +4,22 @@ import Header from "../Header";
 import { Link } from "react-router-dom";
 import Loading from '../Loading'
 import '../../App.css'
+import { useState, useEffect } from 'react';
 
 export default function Podcast(id) {
     /* states variables that is used in the webapp
     *
     */
-    const [podcast, setPodcast] = React.useState([]);
-    const [showDescriptionId, setShowDescriptionId] = React.useState(null);
-    const [selectedOption, setSelectedOption] = React.useState(null);
+    const [podcast, setPodcast] = useState([]);
+    const [showDescriptionId, setShowDescriptionId] = useState(null);
+    const [selectedOption, setSelectedOption] = useState(null);
 
     
     /* Api callback function that fetchs the data from the podcast api as well 
     * as if any data couldnt be fetched returns an error to the console with a message
     *
     */
-    React.useEffect(() => {
+    useEffect(() => {
         const apiUrl = "https://podcast-api.netlify.app/shows";
         fetch(apiUrl)
           .then((res) => {
@@ -35,16 +36,7 @@ export default function Podcast(id) {
           });
       }, []);  
         
-        /* function in charge of what happens when the user clicks the "display info" button
-        * found in the below html return. it has logic implemented to show info based on 
-        * the current podcasts id so regardless of which podcast is clicked as long as the 
-        * id's match it should display the correct info
-        */
-        const handleInfoClick = (id) => {
-            setShowDescriptionId((prevId) => (
-                prevId === id ? null : id
-            ));
-        }
+
         
         /* function in charge of changing the date found in the podcast array "updated"
         * and changes it into a more user friendly format "DD - MM -- YYYY" 
@@ -102,6 +94,7 @@ export default function Podcast(id) {
 
     return (
         <div>
+          <Header />
         <main className="podcast">
             <PodcastSorting handleSelectChange={handleSortingChange} />
             {podcast.length === 0 ? (
@@ -110,28 +103,34 @@ export default function Podcast(id) {
                 </div>
             ) :
             (podcast.map((show) => (
-                <div key={show.id} className="podcast--item">
-                    <Link to={`/podcast/${show.id}`}>
-                    <img 
-                        className="podcast--image" 
-                        src={show.image} 
-                        alt={show.title} width='300vw' height='300vh'/>
-                        <div className="play--icon">
-                        </div>
-                        </Link>
-                    <div className="podcast--info">
-                        <div className="podcast--title">{show.title}</div>
-                        <p className="podcast--updated">Updated Date: {formatDate(show.updated)}</p>
-                        <p className="podcast--seasons">Season: {`Season ${show.seasons}`}</p>
-                        <div className={`podcast--description ${
+                <div key={show.id} className="podcast-item">
+                    <div>
+                      <img 
+                          className="podcast-image" 
+                          src={show.image} 
+                          alt={show.title} width='300vw' height='300vh'
+                      />
+                    </div>
+                    <div className="podcast-info">
+                        <h2 className="podcast-title">{show.title}</h2>
+                        <br></br>
+                        <h3 className="podcast-updated">Updated Date: {formatDate(show.updated)}</h3>
+                        <br></br>
+                        <h3 className="podcast-seasons">Seasons: {show.seasons}</h3>
+                        <br></br>
+                        <h3>Description:</h3>
+                        <div className={`podcast-description ${
                             showDescriptionId === show.id ? "show" : ""}`} >
                             {show.description}
                         </div>
+                        <br></br><br></br><br></br>
+                        <Link to={`/podcast/${show.id}`}>
+                        <button className="view-seasons-button">VIEW SEASONS</button>
+                        </Link>
                     </div>
                 </div>
             )))}
         </main>
-        <div className="audio-div">Hello there</div>
         </div>
             )
 }

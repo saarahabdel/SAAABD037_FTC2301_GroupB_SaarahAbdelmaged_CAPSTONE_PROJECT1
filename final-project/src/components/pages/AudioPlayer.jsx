@@ -1,4 +1,5 @@
-import React ,{ useState, useEffect, useRef } from "react";
+import React ,{ useState, useRef } from "react";
+import '../../App.css'
 
 export default function AudioPlayer({ audioUrl }) {
     const audioRef = useRef();
@@ -14,11 +15,10 @@ export default function AudioPlayer({ audioUrl }) {
     }
 
     return (
-        <div className="audio--player-overlay">
+        <div className="audio-player-overlay">
             <audio ref={audioRef} src={audioUrl}></audio>
             <div className="audio--control">
-                <button onClick={togglePlay}>{isPlaying ? "Stop" : "Play" }</button>
-                {/* <button onCLick={() => audioRef.current.pause()}>Stop</button> */}
+                <button onClick={togglePlay} className="play-audio-button">{isPlaying ? "Stop" : "Play" }</button>
             </div>
         </div>
     )
